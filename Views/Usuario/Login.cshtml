@@ -1,0 +1,29 @@
+﻿@model UsuarioModel.Login
+@{
+    Layout = null;
+    string? url = ViewBag.Url;
+}
+
+<h1>Login</h1>
+
+<form asp-action="Login" method="post" asp-route-url="@url">
+
+    <label>Correo:</label>
+    <input type="email" asp-for="Correo" />
+    <span asp-validation-for="Correo" style="color:red;"></span>
+    <br />
+
+    <label>Clave:</label>
+    <input type="password" asp-for="Clave" />
+    <span asp-validation-for="Clave" style="color:red;"></span>
+    <br />
+
+    <label>
+        <input type="checkbox" asp-for="MantenerActivo" />
+        Mantenerme activo
+    </label>
+    <br />
+    <div asp-validation-summary="All" style="color:red;"></div>
+    <br />
+    <button type="submit">Ingresar</button>
+</form>
